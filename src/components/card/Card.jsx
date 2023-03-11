@@ -1,21 +1,32 @@
+import { useState } from 'react';
 import { HeartOutlined, DeleteOutlined } from "@ant-design/icons";
+import { useDispatch } from "react-redux";
+import { removeItem } from "../../redux/charSlice";
 import { Card } from "antd";
 const { Meta } = Card;
 
-const CardLayout = () => (
-  <Card
-    style={{
-      width: 300,
-    }}
-    cover={
-      <img
-        alt='example'
-        src='https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'
-      />
-    }
-    actions={[<HeartOutlined key='like' />, <DeleteOutlined key='delete' />]}
-  >
-    <Meta title='Card title' description='This is the description' />
-  </Card>
-);
+const CardLayout = ({ id, name, image, species }) => {
+	const [like, setLike] = useState(false);
+	
+  const dispatch = useDispatch();
+
+  const deleteChar = () => {
+    dispatch(removeItem(id));
+  };
+
+  return (
+    <Card
+      style={{
+        width: 300,
+      }}
+      cover={<img alt='character' src={image} />}
+      actions={[
+        <HeartOutlined key='like' />,
+        <DeleteOutlined key='delete' onClick={deleteChar} />,
+      ]}
+    >
+      <Meta title={name} description={species} />
+    </Card>
+  );
+};
 export default CardLayout;
