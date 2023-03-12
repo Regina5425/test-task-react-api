@@ -16,8 +16,16 @@ export const charSlice = createSlice({
   initialState,
   reducers: {
     removeItem(state, action) {
-			state.items = state.items.filter((item) => item.id !== action.payload);
-		},
+      state.items = state.items.filter((item) => item.id !== action.payload);
+    },
+    setLikedChar(state, action) {
+      const likedItem = state.items.find(
+        (item) => item.id === action.payload.id
+      );
+      if (likedItem) {
+        likedItem.liked = action.payload.isLiked;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -25,7 +33,8 @@ export const charSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchAllChar.fulfilled, (state, action) => {
-        state.items = action.payload;
+        const newData = action.payload;
+        state.items = newData.map((item) => ({ ...item, liked: false }));
         state.status = "idle";
       })
       .addCase(fetchAllChar.rejected, (state) => {
@@ -35,5 +44,5 @@ export const charSlice = createSlice({
   },
 });
 
-export const { removeItem } = charSlice.actions;
+export const { removeItem, setLikedChar } = charSlice.actions;
 export default charSlice.reducer;
