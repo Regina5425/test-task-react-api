@@ -2,7 +2,7 @@
   <h1 align="center">Rick and Morty App</h1>
 
   <p align="center">
-		<a href="#" target="_blank">View Demo</a>
+	<a href="https://regina5425.github.io/test-task-react-api/">View Demo</a>
   </p>
 </div>
 
@@ -18,7 +18,7 @@ Features:
 
 ### Built With
 * React, React Hooks
-* Redux toolkit
+* Redux Toolkit
 * JavaScript
 * HTML, CSS
 * Ant Design
