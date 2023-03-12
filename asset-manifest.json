@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/test-task-react-api/static/css/main.3379941c.css",
+    "main.js": "/test-task-react-api/static/js/main.910c237d.js",
+    "index.html": "/test-task-react-api/index.html",
+    "main.3379941c.css.map": "/test-task-react-api/static/css/main.3379941c.css.map",
+    "main.910c237d.js.map": "/test-task-react-api/static/js/main.910c237d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3379941c.css",
+    "static/js/main.910c237d.js"
+  ]
+}
